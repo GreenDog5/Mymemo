@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mymemo</title>
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+        }
+        #searchBox{
+            margin-bottom:20px;
+            padding:10px;
+            width :100%;
+            max-width:400px;
+            font-size:16px;
+        }
+        .link-item{
+            display:inline-block-block;
+            margin:10px;
+            text-align:center;
+        }
+        .link-item img{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <h1>～♪</h1>
+    <input type="text" id="searchBox" placeholder="リンクを検索…">
+    <div id="links">
+        <div class="link-item">
+            <a href="https://x.com/doomsday_511">
+                <img src="X.jpg" alt="ついったー" width="250" height="200">
+                <p>X</p>
+            </a>    
+        </div>  
+        <div class="link-item">
+            <a href="https://gamerch.com/doomsday/">
+                <img src="Gamerch.png" alt="攻略サイト" width="200" height="200">
+                <p>Gamerch</p>
+            </a>
+        </div>  
+        <div class="link-item">
+            <a href="https://h5.g123.jp/game/vividarmy?lang=ja">
+                <img src="Vivi.jpg" alt="ビビアミ" width="200" height="200">
+                <p>ビビアミ</p>
+            </a>
+        </div>
+        <div class="link-item">
+            <a href="https://dls.igg.com/bduck/index.php?game_id=11200899071">
+                <img src="B.duck.png" alt="bduck" width="200" height="200">
+                <p>B.duck doomsday</p>
+            </a>
+        </div>
+        <div class="link-item">
+            <a href="https://studio.youtube.com/channel/UCoh7xWAkpx807-CP3a90TMg">
+                <img src="Studio.png" alt="YoutubeStudio" width="400" height="200">
+                <p>YoutubeStudio</p>
+            </a>
+        </div>    
+        <div class="link-item">
+            <a href="https://memo.onl.jp/?XnbNgGY7H5">
+                <img src="MemoWeb.png" alt="MemoWeb" width="200" height="200">
+                <p>メモMemoWeb</p>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        //検索ボックスの要素
+        const searchBox=document.getElementById('searchBox');
+        const linkItems=document.querySelectorAll('.link-item');
+
+        //検索ボックスの入力を監視
+        searchBox.addEventListener('input',()=>{
+            const query =searchBox.value.toLowerCase();
+            linkItems.forEach(item=>{
+                const text=item.textContent.toLowerCase();
+                //キーワードが含まれているか
+                item.style.display=text.includes(query)?'inline':'none';
+            });
+        });
+    </script>
+</body>
+</html>
